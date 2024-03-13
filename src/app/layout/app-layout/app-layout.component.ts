@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavComponent } from './nav/nav.component';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-app-layout',
@@ -10,4 +11,8 @@ import { NavComponent } from './nav/nav.component';
   templateUrl: './app-layout.component.html',
   styleUrl: './app-layout.component.scss',
 })
-export class AppLayoutComponent {}
+export class AppLayoutComponent implements OnInit {
+  ngOnInit(): void {
+    initFlowbite();
+  }
+}

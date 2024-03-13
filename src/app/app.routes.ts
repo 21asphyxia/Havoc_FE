@@ -1,16 +1,20 @@
 import { Routes } from '@angular/router';
-import { APP_PATHS } from './shared/constants/routes/app-routes';
 import { AUTH_PATHS } from './shared/constants/routes/auth-routes';
 import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
 import { isAuthenticated } from './shared/guards/authentication.guard';
 import { isNotAuthenticated } from './shared/guards/no-authentication.guard';
 import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+import { APP_PATHS } from './shared/constants/routes/app-routes';
 
 export const routes: Routes = [
   {
     path: '',
     component: AppLayoutComponent,
     canActivate: [isAuthenticated],
+    loadChildren: () =>
+      import('./shared/constants/routes/app.routes').then(
+        (mod) => mod.APP_ROUTES,
+      ),
   },
   {
     path: AUTH_PATHS.base,

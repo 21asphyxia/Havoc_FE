@@ -1,0 +1,10 @@
+.group:has(.active) {
+  a,
+  svg,
+  .active {
+    @apply text-primary-foreground;
+  }
+  .active {
+    @apply bg-primary;
+  }
+}

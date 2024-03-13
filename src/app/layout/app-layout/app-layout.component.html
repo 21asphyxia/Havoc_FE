@@ -1,4 +1,10 @@
-<app-nav></app-nav>
-
-<app-sidebar></app-sidebar>
-<router-outlet></router-outlet>
+<div class="flex h-screen w-full overflow-hidden">
+    <app-sidebar></app-sidebar>
+    <div class="flex grow flex-col content-start overflow-hidden bg-card">
+        <app-nav></app-nav>
+        <div id="main-content"
+            class="sm:ml-64 border-gray-700 mt-14 p-4 scrollbar-thumb-rounded scrollbar-track-rounded grow overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

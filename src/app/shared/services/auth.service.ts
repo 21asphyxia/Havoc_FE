@@ -1,17 +1,19 @@
 import { Injectable, inject } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
-import { RegisterPayload } from './interfaces/requests/register-request.interface';
-import { AuthUserData } from './interfaces/responses/auth-user-data.interface';
+import { RegisterPayload } from '../interfaces/requests/register-request.interface';
+import { AuthUserData } from '../interfaces/responses/auth-user-data.interface';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
-import { Member } from './interfaces/models/member.model';
+import { environment } from '../../../environments/environment';
+import { Member } from '../interfaces/models/member.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
+
+  private readonly baseUrl = environment.api.baseUrl;
 
   static decodeToken(token: string): { exp: number } | null {
     try {
@@ -26,7 +28,7 @@ export class AuthService {
     username,
     password,
   }: RegisterPayload): Observable<Member | null> {
-    return this.http.post<Member>(`${environment.api.baseUrl}/auth/register`, {
+    return this.http.post<Member>(`${this.baseUrl}/auth/register`, {
       email,
       username,
       password,
@@ -40,21 +42,15 @@ export class AuthService {
     email: string;
     password: string;
   }): Observable<AuthUserData | null> {
-    return this.http.post<AuthUserData>(
-      `${environment.api.baseUrl}/auth/login`,
-      {
-        email,
-        password,
-      },
-    );
+    return this.http.post<AuthUserData>(`${this.baseUrl}/auth/login`, {
+      email,
+      password,
+    });
   }
 
-  refresh(refresh_token: string): Observable<AuthUserData | null> {
-    return this.http.post<AuthUserData>(
-      `${environment.api.baseUrl}/auth/refresh`,
-      {
-        refreshToken: refresh_token,
-      },
-    );
+  refresh(refresh_token: string): Observable<AuthUserData> {
+    return this.http.post<AuthUserData>(`${this.baseUrl}/auth/refresh`, {
+      refreshToken: refresh_token,
+    });
   }
 }
