@@ -7,10 +7,11 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [GameCardComponent,RouterLink],
+  imports: [GameCardComponent, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
+
 export class HomeComponent implements OnInit {
   games: Game[] = [];
 
@@ -18,9 +19,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameService.getGames().subscribe((games) => {
-        this.games = games;
-        console.log('games', this.games);
-        
+      this.games = games;
+      console.log('games', this.games);
     });
   }
 }

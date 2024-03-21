@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { filter, repeat, take } from 'rxjs';
+import { Match } from '../interfaces/models/match.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +15,26 @@ export class MatchmakingService {
   constructor() {}
 
   joinMatchmaking(game: string) {
-    return this.http.post(`${this.baseUrl}/matchmaking/${game}/join`, {});
+    return this.http
+      .post<Match>(`${this.baseUrl}/matchmaking/${game}/join`, {})
+      .pipe(
+        repeat({ delay: 1000 }),
+        filter((data) => data.status === 'READY'),
+        take(1),
+      );
+  }
+
+  leaveMatchmaking(game: string) {
+    return this.http.post<Match>(
+      `${this.baseUrl}/matchmaking/${game}/leave`,
+      {},
+    );
+  }
+
+  sendDeclaration(matchId: string, data: FormData) {
+    return this.http.post<Match>(
+      `${this.baseUrl}/matchmaking/declare/${matchId}`,
+      data,
+    );
   }
 }

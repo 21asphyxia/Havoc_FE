@@ -25,6 +25,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        center: "0 0 10px 0 rgba(0, 0, 0, 0.5)",
+      },
     },
   },
   variants: {
