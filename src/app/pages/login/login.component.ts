@@ -20,7 +20,7 @@ import { AUTH_ROUTES } from '../../shared/constants/routes/auth-routes';
 })
 export class LoginComponent {
   @HostBinding('class') class =
-    'w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700';
+    'w-full rounded-lg shadow !border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700';
     logInForm: FormGroup;
     registerLink = AUTH_ROUTES.register;
 

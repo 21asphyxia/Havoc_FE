@@ -1,0 +1,63 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<c-col xs="12">
+    <c-card class="mb-4">
+        <c-card-body>
+            <div>
+                <table cTable>
+                    <thead>
+                        <tr>
+                            <th>Declaration ID</th>
+                            <th>Winner</th>
+                            <th>Loser</th>
+                            <th>Game</th>
+                            <th>Match ID</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        @for (declaration of declarations; track $index) {
+                        <tr>
+                            <td>{{ declaration.id }}</td>
+                            <td>{{ declaration.winner }}</td>
+                            <td>{{ declaration.loser }}</td>
+                            <td>{{ declaration.game }}</td>
+                            <td>{{ declaration.matchId }}</td>
+                            <td><span class="badge text-white" [ngClass]="{
+                'bg-success': declaration.status === 'APPROVED',
+                'bg-warning': declaration.status === 'PENDING'
+              }">{{ declaration.status }}</span></td>
+                            <td>
+                                <button cButton color="primary" [cModalToggle]="approvalModal.id"
+                                    (click)="selectDeclaration(declaration)">Show</button>
+                        </tr>
+                        }
+                        @empty {
+                        <tr>
+                            <td colspan="6">No members found</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </c-card-body>
+    </c-card>
+</c-col>
+
+<c-modal #approvalModal alignment="center" id="registerModal" scrollable>
+    <form cForm #approvalForm="ngForm" (ngSubmit)="onSubmit()">
+        <c-modal-header>
+            <h5 cModalTitle>Approve match</h5>
+            <button [cModalToggle]="approvalModal.id" #closeModal cButtonClose></button>
+        </c-modal-header>
+        <c-modal-body>
+            <img [src]="selectedDeclaration.image" alt="Declaration image" class="w-100" />
+        </c-modal-body>
+        <c-modal-footer>
+            <button [cModalToggle]="approvalModal.id" cButton color="secondary">
+                Close
+            </button>
+            <button cButton color="primary" type="submit">Approve</button>
+        </c-modal-footer>
+    </form>
+</c-modal>

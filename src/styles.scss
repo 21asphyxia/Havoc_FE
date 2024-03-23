@@ -1,21 +1,23 @@
+@import "@coreui/coreui/scss/coreui";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 222 47% 7%;
-    --card-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 0 0% 100%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --destructive: 350 100% 40%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-  }
+:root {
+  --background: 224 71.4% 4.1%;
+  --foreground: 210 20% 98%;
+  --card: 222 47% 7%;
+  --card-foreground: 210 20% 98%;
+  --primary: 263.4 70% 50.4%;
+  --primary-foreground: 0 0% 100%;
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 217.9 10.6% 64.9%;
+  --destructive: 350 100% 40%;
+  --destructive-foreground: 210 20% 98%;
+  --border: 215 27.9% 16.9%;
+}
 }
 
 @supports selector(::-webkit-scrollbar) {
@@ -26,4 +28,17 @@
 
 body {
   @apply bg-gray-900;
+}
+
+.wrapper {
+  width: 100%;
+  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+  @include ltr-rtl("padding-right", var(--cui-sidebar-occupy-end, 0));
+  will-change: auto;
+  @include transition(padding 0.15s);
+}
+
+th,
+td {
+  text-align: center;
 }

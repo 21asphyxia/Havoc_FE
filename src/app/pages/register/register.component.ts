@@ -13,9 +13,9 @@ import { AUTH_ROUTES } from '../../shared/constants/routes/auth-routes';
 })
 export class RegisterComponent {
   @HostBinding('class') class =
-    'w-full rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700';
-    registerForm: FormGroup;
-    loginLink = AUTH_ROUTES.login;
+    'w-full rounded-lg shadow !border md:mt-0 sm:max-w-md xl:p-0 bg-gray-800 border-gray-700';
+  registerForm: FormGroup;
+  loginLink = AUTH_ROUTES.login;
 
   constructor(
     private formBuilder: FormBuilder,
