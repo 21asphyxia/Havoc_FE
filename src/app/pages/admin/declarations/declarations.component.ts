@@ -25,7 +25,7 @@ import { NgClass } from '@angular/common';
     ModalModule,
     FormsModule,
     FormModule,
-    NgClass
+    NgClass,
   ],
   templateUrl: './declarations.component.html',
   styleUrl: './declarations.component.scss',
@@ -53,12 +53,20 @@ export class DeclarationsComponent {
   }
 
   selectDeclaration(declaration: Declaration) {
-    console.log(declaration);
     this.selectedDeclaration = declaration;
   }
 
   onSubmit() {
+    this.declarationService
+      .approve(this.selectedDeclaration.id)
+      .subscribe((data) => {
+        this.declarations = this.declarations.map((declaration) => {
+          if (declaration.id === this.selectedDeclaration.id) {
+            return data;
+          }
+          return declaration;
+        });
+      });
     this.closeModal.nativeElement.click();
-
   }
 }

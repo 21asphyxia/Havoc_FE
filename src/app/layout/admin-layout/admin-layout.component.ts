@@ -2,7 +2,7 @@ import { iconSubset } from './../../icons/icon-subset';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { navItems } from './_nav';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ContainerComponent, SidebarModule } from '@coreui/angular';
 import { NgScrollbar } from 'ngx-scrollbar';
 import { DefaultHeaderComponent } from './default-header/default-header.component';
@@ -12,6 +12,7 @@ import { IconSetService } from '@coreui/icons-angular';
   selector: 'app-admin-layout',
   standalone: true,
   imports: [
+    RouterLink,
     CommonModule,
     RouterOutlet,
     DefaultHeaderComponent,

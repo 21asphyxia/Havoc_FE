@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Game } from '../../shared/interfaces/models/game.model';
 
 @Component({
@@ -10,12 +10,6 @@ import { Game } from '../../shared/interfaces/models/game.model';
   templateUrl: './game-card.component.html',
   styleUrl: './game-card.component.scss',
 })
-export class GameCardComponent implements OnInit {
+export class GameCardComponent {
   @Input() game: Game = <Game>{};
-
-  constructor() {}
-
-  ngOnInit(): void {
-    console.log('GameCardComponent', this.game);
-  }
 }

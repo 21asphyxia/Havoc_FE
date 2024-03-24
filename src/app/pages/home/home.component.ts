@@ -20,7 +20,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.gameService.getGames().subscribe((games) => {
       this.games = games;
-      console.log('games', this.games);
     });
   }
 }

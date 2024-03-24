@@ -28,15 +28,11 @@ export class RegisterComponent {
     });
   }
   sendForm() {
-    console.log(this.registerForm);
-
     if (this.registerForm.valid) {
       const { username, email, password } = this.registerForm.getRawValue();
       this.authService
         .register({ username, email, password })
-        .subscribe((res) => {
-          console.log(res);
-        });
+        .subscribe();
     }
   }
 }

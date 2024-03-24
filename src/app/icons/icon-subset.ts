@@ -27,6 +27,7 @@ import {
   cilBell,
   cilBold,
   cilBookmark,
+  cilBullhorn,
   cilCalculator,
   cilCalendar,
   cilChart,
@@ -45,6 +46,7 @@ import {
   cilEnvelopeClosed,
   cilEnvelopeOpen,
   cilFile,
+  cilGamepad,
   cilHome,
   cilInbox,
   cilIndentDecrease,
@@ -88,7 +90,7 @@ import {
   cilUser,
   cilUserFemale,
   cilUserFollow,
-  cilUserUnfollow
+  cilUserUnfollow,
 } from '@coreui/icons';
 
 export const iconSubset = {
@@ -120,6 +122,7 @@ export const iconSubset = {
   cilBell,
   cilBold,
   cilBookmark,
+  cilBullhorn,
   cilCalculator,
   cilCalendar,
   cilChart,
@@ -138,6 +141,7 @@ export const iconSubset = {
   cilEnvelopeClosed,
   cilEnvelopeOpen,
   cilFile,
+  cilGamepad,
   cilHome,
   cilInbox,
   cilIndentDecrease,
@@ -181,7 +185,7 @@ export const iconSubset = {
   cilUser,
   cilUserFemale,
   cilUserFollow,
-  cilUserUnfollow
+  cilUserUnfollow,
 };
 
 export enum IconSubset {

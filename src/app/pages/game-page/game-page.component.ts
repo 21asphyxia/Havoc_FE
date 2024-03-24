@@ -9,6 +9,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { DeclarationService } from '../../shared/services/declaration.service';
 @Component({
   selector: 'app-game-page',
   standalone: true,
@@ -19,6 +20,8 @@ import {
 @Flowbite()
 export class GamePageComponent implements OnInit, OnDestroy {
   matchmakingService: MatchmakingService = inject(MatchmakingService);
+  declarationService: DeclarationService = inject(DeclarationService);
+
 
   loading = true;
   matchId: string = '';
@@ -69,17 +72,14 @@ export class GamePageComponent implements OnInit, OnDestroy {
   }
 
   sendDeclaration() {
-    console.log(this.image);
-
     if (!this.image) return;
     const data = new FormData();
     data.append('image', this.image);
 
-    console.log(data.has('image'));
-
-    this.matchmakingService.sendDeclaration(this.matchId, data).subscribe(
+    this.declarationService.sendDeclaration(this.matchId, data).subscribe(
       (data) => {
         this.status = data.status;
+
       },
       (error) => {
         alert(error.error.message);

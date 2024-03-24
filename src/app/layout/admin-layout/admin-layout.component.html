@@ -1,7 +1,10 @@
 <!--sidebar-->
 <c-sidebar #sidebar="cSidebar" class="d-print-none sidebar sidebar-fixed" id="sidebar" visible>
   <c-sidebar-brand>
-    Havoc
+    <a href="/" class="flex mx-auto" [routerLink]="'/'">
+      <img src="assets/images/logo_white.png" class="h-12 me-3" alt="Havoc Logo" />
+      <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Havoc</span>
+    </a>
   </c-sidebar-brand>
 
   <ng-scrollbar pointerEventsMethod="scrollbar">

@@ -30,11 +30,4 @@ export class MatchmakingService {
       {},
     );
   }
-
-  sendDeclaration(matchId: string, data: FormData) {
-    return this.http.post<Match>(
-      `${this.baseUrl}/matchmaking/declare/${matchId}`,
-      data,
-    );
-  }
 }

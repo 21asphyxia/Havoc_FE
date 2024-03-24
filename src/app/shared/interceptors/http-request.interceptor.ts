@@ -6,8 +6,6 @@ import { AuthService } from '../services/auth.service';
 import { AuthUserData } from '../interfaces/responses/auth-user-data.interface';
 
 export const httpInterceptor: HttpInterceptorFn = (req, next) => {
-  console.log('httpInterceptor', req.url);
-
   if (!req.url.includes('login') && !req.url.includes('register')) {
     req = req.clone({
       headers: req.headers.set(
@@ -19,7 +17,6 @@ export const httpInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   return next(req).pipe(
     catchError((error) => {
-      console.log('error', error);
       if (error.status === 401) {
         return getNewToken().pipe(
           switchMap((authData) => {

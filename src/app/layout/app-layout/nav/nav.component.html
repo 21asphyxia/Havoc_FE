@@ -30,16 +30,16 @@
           </div>
           <div class="z-50 hidden my-4 text-base list-none divide-y rounded shadow bg-gray-700 divide-gray-600"
             id="dropdown-user">
-            <div class="px-4 py-3" role="none">
+            <div *ngIf="member$ | async as member" class="px-4 py-3" role="none">
               <p class="text-sm text-white" role="none">
-                Neil Sims
+                {{ member.username }}
               </p>
               <p class="text-sm font-medium truncate text-gray-300" role="none">
-                neil.sims.com
+                {{ member.email }}
               </p>
             </div>
             <ul class="py-1" role="none">
-              <li>
+              <li *ngIf="isAdmin$ | async" role="none">
                 <a [routerLink]="'admin/declarations'"
                   class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-600 hover:text-white"
                   role="menuitem">Dashboard</a>

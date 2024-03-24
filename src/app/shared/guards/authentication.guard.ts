@@ -22,21 +22,15 @@ export const isAuthenticated: CanActivateFn = (
 
   return store.select(selectChecked).pipe(
     filter((checked) => {
-      console.log('isAuthenticated filter', checked);
       return checked;
     }),
     switchMap(() => {
-      console.log('isAuthenticated switchMap');
       return store.select(selectHasMember);
     }),
     map((hasMember) => {
-      console.log('isAuthenticated hasMember', hasMember);
-
       if (hasMember) {
-        console.log('isAuthenticated hasMember');
         return true;
       } else {
-        console.log('isAuthenticated !hasMember');
         router.navigate(['/auth/login'], { queryParams: { returnUrl: url } });
         return false;
       }

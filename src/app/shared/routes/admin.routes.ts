@@ -10,5 +10,12 @@ export const ADMIN_ROUTES: Route[] = [
         (m) => m.DeclarationsComponent,
       ),
   },
+  {
+    path: ADMIN_PATHS.games,
+    loadComponent: () =>
+      import('../../pages/admin/games/games.component').then(
+        (m) => m.GamesComponent,
+      ),
+  },
   { path: '**', redirectTo: APP_PATHS.error404 },
 ];

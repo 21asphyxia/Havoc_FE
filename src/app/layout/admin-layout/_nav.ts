@@ -2,13 +2,13 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'Declarations',
-    url: '/admin/declarations',
-    iconComponent: { name: 'cil-speedometer' },
+    name: 'Games',
+    url: '/admin/games',
+    iconComponent: { name: 'cil-gamepad' },
   },
   {
-    name: 'Members',
-    url: '/members',
-    iconComponent: { name: 'cil-user' },
+    name: 'Declarations',
+    url: '/admin/declarations',
+    iconComponent: { name: 'cil-bullhorn' },
   },
 ];

@@ -44,7 +44,6 @@ export const login = createEffect(
           tap((authData) => {
             localStorage.setItem('token', authData.access_token);
             localStorage.setItem('refresh', authData.refresh_token);
-            console.log('login tap');
             router.navigate(['/']);
           }),
           map(({ member }) => authActions.loginSuccess({ member })),
