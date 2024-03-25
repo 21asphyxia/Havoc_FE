@@ -1,7 +1,14 @@
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+
 export const environment = {
-  production: true,
+  production: false,
   api: {
-    baseUrl: 'http://localhost:8081/api/v2',
+    baseUrl: 'http://localhost:8081/api/v1',
   },
-  providers: [],
+  providers: [
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: false,
+    }),
+  ],
 };
