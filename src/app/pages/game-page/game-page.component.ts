@@ -55,7 +55,7 @@ export class GamePageComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.matchId = data.id;
         this.status = data.status;
-        if (data.status === 'READY') {
+        if (data.status !== 'PENDING') {
           this.loading = false;
           this.firstPlayerName = data.firstPlayer;
           this.secondPlayerName = data.secondPlayer;

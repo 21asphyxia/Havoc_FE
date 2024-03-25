@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Game } from '../interfaces/models/game.model';
+import { GameElo } from '../interfaces/models/gameElo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +29,9 @@ export class GameService {
 
   deleteGame(id: number) {
     return this.http.delete(`${this.baseUrl}/games/${id}`);
+  }
+
+  getLeaderboard(gameName: string) {
+    return this.http.get<GameElo[]>(`${this.baseUrl}/leaderboards/${gameName}`);
   }
 }

@@ -14,5 +14,12 @@ export const APP_ROUTES: Route[] = [
         (m) => m.GamePageComponent,
       ),
   },
+  {
+    path: APP_PATHS.leaderboards,
+    loadComponent: () =>
+      import('../../pages/leaderboard/leaderboard.component').then(
+        (m) => m.LeaderboardComponent,
+      ),
+  },
   { path: '**', redirectTo: APP_PATHS.error404 },
 ];

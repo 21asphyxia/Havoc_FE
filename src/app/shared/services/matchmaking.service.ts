@@ -19,7 +19,7 @@ export class MatchmakingService {
       .post<Match>(`${this.baseUrl}/matchmaking/${game}/join`, {})
       .pipe(
         repeat({ delay: 1000 }),
-        filter((data) => data.status === 'READY'),
+        filter((data) => data.status !== 'PENDING'),
         take(1),
       );
   }

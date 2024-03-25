@@ -11,7 +11,8 @@
                             d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z" />
                     </svg>
                 </div>
-                <div class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card" [routerLink]="'/'" routerLinkActive="active">
+                <div class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card" routerLink=""
+                    routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
                     <a
                         class="ml-10 truncate text-sm font-semibold tracking-wide text-muted-foreground focus:outline-none group-hover:text-foreground">
                         Play
@@ -33,15 +34,15 @@
                 <div class="pointer-events-none absolute m-2 text-muted-foreground/50">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                         stroke-width="2" class="h-5 w-5" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
-                        </path>
+                        <path
+                            d="M22,7H16.333V4a1,1,0,0,0-1-1H8.667a1,1,0,0,0-1,1v7H2a1,1,0,0,0-1,1v8a1,1,0,0,0,1,1H22a1,1,0,0,0,1-1V8A1,1,0,0,0,22,7ZM7.667,19H3V13H7.667Zm6.666,0H9.667V5h4.666ZM21,19H16.333V9H21Z" />
                     </svg>
                 </div>
-                <div class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card">
+                <div class="flex h-9 cursor-pointer items-center justify-start rounded hover:bg-card"
+                    routerLink="/leaderboards" routerLinkActive="active">
                     <a
                         class="ml-10 truncate text-sm font-semibold tracking-wide text-muted-foreground focus:outline-none group-hover:text-foreground">
-                        Auth
+                        Leaderboards
                     </a>
                 </div>
                 <button
